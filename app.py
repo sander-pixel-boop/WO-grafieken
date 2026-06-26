@@ -76,6 +76,40 @@ def create_chart(title, data_dict):
 
     return fig
 
+
+st.markdown("---")
+st.markdown("### Algemene Samenvatting")
+
+st.markdown('''
+Op basis van alle peilingen schetst de WOC-community het volgende verloop van de Tour de France:
+
+- **Start & Geel:** Een bloedstollende ploegentijdrit levert een nek-aan-nekrace op tussen Visma, UAE en Red Bull. De eerste gele trui is direct een tweestrijd tussen topfavorieten Pogacar en Vingegaard.
+- **Dominantie Pogacar:** De heuvel- en bergritten zijn een prooi voor de klassementsmannen, waarbij Tadej Pogacar afgetekend domineert. Hij wint meerdere ritten en houdt de gele trui stevig in handen.
+- **Tijdverlies Vingegaard:** Jonas Vingegaard krijgt in de bergen tikken te verwerken. Na etappe 15 staat hij volgens de peilingen op een aanzienlijke achterstand van 2 tot 3+ minuten.
+- **Strijd om Groen:** Waar Mads Pedersen in de zware sprintritten (zoals etappe 4) nog uitgesproken favoriet is, neemt Jasper Philipsen gedurende de Tour het initiatief over. Tegen het einde van de ronde is de verwachting overweldigend dat Philipsen het groen wint.
+- **Tijdrit & Witte Trui:** Remco Evenepoel heerst in het tijdrijden (etappe 16). In het jongerenklassement is Isaac Del Toro veruit de grootste kanshebber voor de witte trui.
+- **Vluchters:** Er zijn duidelijke kansen voor het type 'klim-vluchter' (denk aan Healy, Simmons, Van Gils) in etappes 3 en 13.
+''')
+
+st.markdown("#### Verwachtingen (Gebaseerd op specifieke peilingen)")
+sum_cols = st.columns(4)
+
+with sum_cols[0]:
+    fig1 = create_chart("Eerste Gele Trui (Etappe 1)", {"Pogacar": 45, "Vingegaard": 42})
+    st.plotly_chart(fig1, use_container_width=True)
+with sum_cols[1]:
+    fig2 = create_chart("Achterstand Vingegaard (Na Et. 15)", {"3+ minuten": 46, "2-3 minuten": 35})
+    st.plotly_chart(fig2, use_container_width=True)
+with sum_cols[2]:
+    fig3 = create_chart("Groene Trui Verwachting (Et. 17)", {"Philipsen": 83})
+    st.plotly_chart(fig3, use_container_width=True)
+with sum_cols[3]:
+    fig4 = create_chart("Witte Trui Verwachting (Et. 16)", {"Del Toro": 67})
+    st.plotly_chart(fig4, use_container_width=True)
+
+st.markdown("---")
+st.markdown("### Uitslagen per Etappe")
+
 stages_data = [
     {
         "name": "Etappe 1 (TTT)",
