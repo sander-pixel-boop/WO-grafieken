@@ -58,7 +58,7 @@ def create_chart(title, data_dict):
         orientation='h',
         title=title,
         color='Categorie',
-        color_discrete_sequence=['#ed83ff', '#5d04ad', '#d65ce8', '#fffc', '#a855f7'],
+        color_discrete_sequence=['#ed83ff', '#5d04ad', '#d65ce8', '#ffffff', '#a855f7'],
         text='Percentage'
     )
 
