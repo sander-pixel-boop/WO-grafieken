@@ -7,6 +7,31 @@ st.set_page_config(layout="wide", page_title="WOC Tour de France Dashboard")
 
 st.markdown("<h2 style='text-align: center;'>Tour de France 2026: WOC Polls</h2>", unsafe_allow_html=True)
 
+# Custom CSS voor extra styling
+st.markdown(
+    """
+    <style>
+    /* Styling voor de expanders om ze meer in de stijl te krijgen */
+    .streamlit-expanderHeader {
+        background-color: #301141;
+        color: #ed83ff;
+        border-radius: 5px;
+    }
+    div[data-testid="stExpander"] div[role="button"] p {
+        font-weight: bold;
+        color: #ed83ff;
+        font-size: 1.1rem;
+    }
+    div[data-testid="stExpander"] {
+        border: 1px solid #5d04ad;
+        border-radius: 5px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 def create_chart(title, data_dict):
     """
     Helper function to create a plotly horizontal bar chart.
@@ -33,11 +58,13 @@ def create_chart(title, data_dict):
         orientation='h',
         title=title,
         color='Categorie',
+        color_discrete_sequence=['#ed83ff', '#5d04ad', '#d65ce8', '#fffc', '#a855f7'],
         text='Percentage'
     )
 
     fig.update_layout(
-        template='plotly_dark',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
         yaxis={'categoryorder':'total ascending'},
         height=300,
